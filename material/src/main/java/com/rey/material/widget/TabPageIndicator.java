@@ -7,10 +7,11 @@ import android.database.DataSetObserver;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
 import android.text.TextUtils.TruncateAt;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -473,6 +474,9 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
             tv.setCheckMarkDrawable(null);
             tv.setText(title);
             tv.setGravity(Gravity.CENTER);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                tv.setTextAlignment(CheckedTextView.TEXT_ALIGNMENT_GRAVITY);
+            }
             tv.setTextAppearance(getContext(), mTextAppearance);
             if(mTabSingleLine)
                 tv.setSingleLine(true);
@@ -526,6 +530,9 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
             tv.setCheckMarkDrawable(null);
             tv.setText(title);
             tv.setGravity(Gravity.CENTER);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                tv.setTextAlignment(CheckedTextView.TEXT_ALIGNMENT_GRAVITY);
+            }
             tv.setTextAppearance(getContext(), mTextAppearance);
             tv.setSingleLine(true);
             tv.setEllipsize(TruncateAt.END);
